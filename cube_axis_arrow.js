@@ -1,8 +1,6 @@
-// Our Javascript will go here.
-//helped by http://stackoverflow.com/questions/16226693/three-js-show-world-coordinate-axes-in-corner-of-scene
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
-
+//
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
@@ -13,7 +11,8 @@ scene.add( cube );
 //
 camera.position.z = 5;
 //  controlls
-controls = new THREE.TrackballControls( camera, renderer.domElement );
+var controls = new THREE.TrackballControls( camera, renderer.domElement );
+controls.addEventListener( 'change', render ); //apparently not necessary
 //  Adding arrows
 var dir = new THREE.Vector3( 1, 0, 0 );
 var origin = new THREE.Vector3( 0, 0, 0 );
