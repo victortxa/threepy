@@ -19,6 +19,17 @@ camera.position.z = 5;
 //  controlls
 var controls = new THREE.TrackballControls( camera, renderer.domElement );
 //controls.addEventListener( 'change', render ); //apparently not necessary
+//-------------------GRID------------
+var gridXZ = new THREE.GridHelper(5, 5);
+gridXZ.position.y = - 1;
+scene.add(gridXZ);
+var gridXY = new THREE.GridHelper(5, 5);
+gridXY.rotation.x = Math.PI/2;
+gridXY.position.set(1,1,0);
+//nao funcionou
+//gridXY.setColors( new THREE.Color(0xff0000), new THREE.Color(0xffffff) );
+scene.add(gridXY);
+//-----------------------------------
 //  Adding arrows
 var dir = new THREE.Vector3( 1, 0, 0 );
 var origin = new THREE.Vector3( 0, 0, 0 );
